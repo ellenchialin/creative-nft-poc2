@@ -1,13 +1,12 @@
-const Time = ({ location, currentTime, timezone }) => {
+import { Text } from '@chakra-ui/react';
+
+const Time = ({ currentTime, timezone }) => {
   return (
-    <>
-      <h2>{location}</h2>
-      <p>
-        {currentTime.toLocaleString('en-US', {
-          timeZone: timezone,
-        })}
-      </p>
-    </>
+    <Text>
+      {currentTime.toLocaleString('en-US', {
+        timeZone: timezone,
+      })}
+    </Text>
   );
 };
 

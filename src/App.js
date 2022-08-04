@@ -10,6 +10,7 @@ import Weather from './components/Weather';
 const CONTRACT_ADDRESS = '0x4E974c3BC95F9e5637EF77BE165BE09c46C2e12f';
 
 function App() {
+  const [idQuery, setIdQuery] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timezone, setTimezone] = useState('');
   const [cityName, setCityName] = useState('');
@@ -133,6 +134,7 @@ function App() {
 
     if (tokenIdQuery) {
       console.log('tokenId Query: ', tokenIdQuery);
+      setIdQuery(tokenIdQuery);
       getLocation(tokenIdQuery);
     }
   }, []);
@@ -156,15 +158,24 @@ function App() {
       backgroundColor="rgba(51, 65, 91, 0.96)"
       color="white"
     >
-      {isLoading && <p>Search Token ID on URL to get city info</p>}
-      <Flex>
-        {weatherInfo.temp && timezone !== '' && (
-          <Flex direction="column" alignItems="center" gap="20">
+      {!idQuery && <p>Search Token ID on URL to get city info</p>}
+      {weatherInfo.temp && timezone !== '' && (
+        <Flex
+          direction="column"
+          alignItems="center"
+          gap="20"
+          backgroundColor="white"
+          color="rgba(51, 65, 91, 0.96)"
+          borderRadius="10px"
+          p="24"
+        >
+          <Flex direction="column" alignItems="center">
             <Text fontSize="2rem">{cityName}</Text>
-            <Weather weatherInfo={weatherInfo} timezone={timezone} />
+            <Time currentTime={currentTime} timezone={timezone} />
           </Flex>
-        )}
-      </Flex>
+          <Weather weatherInfo={weatherInfo} timezone={timezone} />
+        </Flex>
+      )}
     </Flex>
   );
 }
