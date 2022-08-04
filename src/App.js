@@ -159,8 +159,8 @@ function App() {
       {isLoading && <p>Search Token ID on URL to get city info</p>}
       <Flex>
         {weatherInfo.temp && timezone !== '' && (
-          <Flex direction="column" alignItems="center">
-            <Text>{cityName}</Text>
+          <Flex direction="column" alignItems="center" gap="20">
+            <Text fontSize="2rem">{cityName}</Text>
             <Weather weatherInfo={weatherInfo} timezone={timezone} />
           </Flex>
         )}

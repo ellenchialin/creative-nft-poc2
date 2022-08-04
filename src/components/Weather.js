@@ -47,14 +47,14 @@ const Weather = ({ weatherInfo, timezone }) => {
           </Stat>
         </Box>
       </Flex>
-      <Flex justify="space-between">
-        <Stat>
+      <Flex w="full" justify="space-between">
+        <Stat w="150px">
           <StatLabel>Sunrise</StatLabel>
           <StatNumber fontWeight="bold" fontSize="1.2rem">
             {convertUnixToDate(sunrise)}
           </StatNumber>
         </Stat>
-        <Stat>
+        <Stat w="150px">
           <StatLabel>Sunset</StatLabel>
           <StatNumber fontWeight="bold" fontSize="1.2rem">
             {convertUnixToDate(sunset)}
