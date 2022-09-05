@@ -97,12 +97,7 @@ function App() {
 
       if (seed) {
         console.log('seed: ', seed);
-        if (
-          Number(seed) ===
-          Number(
-            0x0000000000000000000000000000000000000000000000000000000000000000
-          )
-        ) {
+        if (Number(seed) === 0) {
           alert('Token id does not exist. Please try another token id.');
           return;
         }
